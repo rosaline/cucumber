@@ -1,0 +1,36 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.9.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.1") 
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+group = 'com.wenjian'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	testCompile 'net.serenity-bdd:serenity-core:1.1.1'                  
+    testCompile 'net.serenity-bdd:serenity-junit:1.1.1' 
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.seleniumhq.selenium:selenium-java:2.53.0')
+	compile('info.cukes:cucumber-java8:1.2.5')
+	compile('info.cukes:cucumber-junit:1.2.5')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
